@@ -36,10 +36,39 @@ local editor = {
   end
 }
 
+local symbol = {
+  rename = function()
+    vim.fn.VSCodeNotify("editor.action.rename")
+  end,
+}
+
+local search = {
+  reference = function()
+    vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
+  end,
+  referenceInSideBar = function()
+    vim.fn.VSCodeNotify("references-view.find")
+  end,
+  project = function()
+    vim.fn.VSCodeNotify("editor.action.addSelectionToNextFindMatch")
+    vim.fn.VSCodeNotify("workbench.action.findInFiles")
+  end,
+  text = function()
+    vim.fn.VSCodeNotify("workbench.action.findInFiles")
+  end,
+}
+
 vim.g.mapleader = " "
+vim.keymap.set({ 'n' }, "<leader>h", "<cmd>noh<cr>")
 
 vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
 vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
+vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
+
+vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
+vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
+vim.keymap.set({ 'n' }, "<leader>sp", search.project)
+vim.keymap.set({ 'n' }, "<leader>st", search.text)
 
 -- File
 vim.keymap.set({ 'n', 'v' }, "<space>w", file.save)
