@@ -1,8 +1,8 @@
-local whichkey = require "whichkey"
-local comment  = require "comment"
-local file     = require "file"
-local problem  = require "problem"
-local editor   = require "editor"
+local whichkey = require("whichkey")
+local comment  = require("comment")
+local file     = require("file")
+local problem  = require("problem")
+local editor   = require("editor")
 
 vim.g.mapleader = " "
 

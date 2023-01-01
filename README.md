@@ -41,3 +41,12 @@ vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
 vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
 ```
+
+## Installation (Linux debian)
+
+Clone this repository into `.config` directory.
+Then put the following setting in your `VSCode config JSON file`:
+
+```json
+	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/vscode-nvim/init.lua",
+```
