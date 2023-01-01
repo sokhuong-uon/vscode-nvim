@@ -1,27 +1,15 @@
-vim.g.mapleader = " "
-vim.keymap.set({ 'n' }, "<leader>h", "<cmd>noh<cr>")
-
---#region whichkey
 local whichkey = {
   show = function()
     vim.fn.VSCodeNotify("whichkey.show")
   end
 }
 
-vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
---#endregion whichkey
-
---#region comment
 local comment = {
   selected = function()
     vim.fn.VSCodeNotifyRange("editor.action.commentLine", vim.fn.line("v"), vim.fn.line("."), 1)
   end
 }
 
-vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
---#endregion comment
-
---#region file
 local file = {
   save = function()
     vim.fn.VSCodeNotify("workbench.action.files.save")
@@ -40,32 +28,13 @@ local file = {
   end
 }
 
-vim.keymap.set({ 'n', 'v' }, "<space>w", file.save)
-vim.keymap.set({ 'n', 'v' }, "<space>wa", file.saveAll)
-vim.keymap.set({ 'n' }, "<space>ff", file.format)
-vim.keymap.set({ 'n' }, "<space>fe", file.showInExplorer)
---#endregion file
-
---#region problem
 local problem = {
   toggle = function()
     vim.fn.VSCodeNotify("workbench.actions.view.toggleProblems")
   end
 }
 
-vim.keymap.set({ 'n', 'v' }, "<space>t", problem.toggle)
---#endregion problem
-
---#region editor
 local editor = {
-  previous = function()
-    vim.fn.VSCodeNotify("workbench.action.previousEditor")
-  end,
-
-  next = function()
-    vim.fn.VSCodeNotify("workbench.action.nextEditor")
-  end,
-
   closeActive = function()
     vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
   end,
@@ -75,23 +44,36 @@ local editor = {
   end
 }
 
-vim.keymap.set({ 'n', 'v' }, "H", editor.previous)
-vim.keymap.set({ 'n', 'v' }, "L", editor.next)
-vim.keymap.set({ 'n', 'v' }, "<space>c", editor.closeActive)
-vim.keymap.set({ 'n', 'v' }, "<space>k", editor.closeOther)
---#endregion editor
+local workbench = {
+  showCommands = function()
+    vim.fn.VSCodeNotify("workbench.action.showCommands")
+  end,
+  previousEditor = function()
+    vim.fn.VSCodeNotify("workbench.action.previousEditor")
+  end,
+  nextEditor = function()
+    vim.fn.VSCodeNotify("workbench.action.nextEditor")
+  end,
+}
 
---#region symbol
+local toggle = {
+  toggleActivityBar = function()
+    vim.fn.VSCodeNotify("workbench.action.toggleActivityBarVisibility")
+  end,
+  toggleSideBarVisibility = function()
+    vim.fn.VSCodeNotify("workbench.action.toggleSidebarVisibility")
+  end,
+  toggleZenMode = function()
+    vim.fn.VSCodeNotify("workbench.action.toggleZenMode")
+  end,
+}
+
 local symbol = {
   rename = function()
     vim.fn.VSCodeNotify("editor.action.rename")
   end,
 }
 
-vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
---#endregion symbol
-
---#region search
 local search = {
   reference = function()
     vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
@@ -108,13 +90,6 @@ local search = {
   end,
 }
 
-vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
-vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
-vim.keymap.set({ 'n' }, "<leader>sp", search.project)
-vim.keymap.set({ 'n' }, "<leader>st", search.text)
---#endregion search
-
---#region project
 local project = {
   findFile = function()
     vim.fn.VSCodeNotify("workbench.action.quickOpen")
@@ -127,12 +102,6 @@ local project = {
   end,
 }
 
-vim.keymap.set({ 'n' }, "<leader>pf", project.findFile)
-vim.keymap.set({ 'n' }, "<leader>pp", project.switch)
-vim.keymap.set({ 'n' }, "<leader>pt", project.tree)
---#endregion project
-
---#region git
 local git = {
   init = function()
     vim.fn.VSCodeNotify("git.init")
@@ -156,10 +125,47 @@ local git = {
   end,
 }
 
+--#region keymap
+vim.g.mapleader = " "
+
+vim.keymap.set({ 'n' }, "<leader>h", "<cmd>noh<cr>")
+vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
+vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
+
+vim.keymap.set({ 'n', 'v' }, "<leader> ", workbench.showCommands)
+
+vim.keymap.set({ 'n', 'v' }, "H", workbench.previousEditor)
+vim.keymap.set({ 'n', 'v' }, "L", workbench.nextEditor)
+
 vim.keymap.set({ 'n' }, "<leader>gs", git.switch)
 vim.keymap.set({ 'n' }, "<leader>gi", git.init)
 vim.keymap.set({ 'n' }, "<leader>gp", git.push)
 vim.keymap.set({ 'n' }, "<leader>gP", git.pull)
 vim.keymap.set({ 'n' }, "<leader>gU", git.publish)
 vim.keymap.set({ 'n' }, "<leader>gg", git.graph)
---#endregion git
+
+vim.keymap.set({ 'n' }, "<leader>pf", project.findFile)
+vim.keymap.set({ 'n' }, "<leader>pp", project.switch)
+vim.keymap.set({ 'n' }, "<leader>pt", project.tree)
+
+vim.keymap.set({ 'n', 'v' }, "<space>w", file.save)
+vim.keymap.set({ 'n', 'v' }, "<space>wa", file.saveAll)
+vim.keymap.set({ 'n' }, "<space>ff", file.format)
+vim.keymap.set({ 'n' }, "<space>ft", file.showInExplorer)
+
+vim.keymap.set({ 'n', 'v' }, "<space>c", editor.closeActive)
+vim.keymap.set({ 'n', 'v' }, "<space>k", editor.closeOther)
+
+vim.keymap.set({ 'n', 'v' }, "<space>e", problem.toggle)
+
+vim.keymap.set({ 'n', 'v' }, "<leader>ta", toggle.toggleActivityBar)
+vim.keymap.set({ 'n', 'v' }, "<leader>tz", toggle.toggleZenMode)
+vim.keymap.set({ 'n', 'v' }, "<leader>ts", toggle.toggleSideBarVisibility)
+
+vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
+
+vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
+vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
+vim.keymap.set({ 'n' }, "<leader>sp", search.project)
+vim.keymap.set({ 'n' }, "<leader>st", search.text)
+--#endregion keymap
