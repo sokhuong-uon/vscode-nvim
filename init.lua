@@ -122,12 +122,44 @@ local project = {
   switch = function()
     vim.fn.VSCodeNotify("workbench.action.openRecent")
   end,
-  explorer = function()
+  tree = function()
     vim.fn.VSCodeNotify("workbench.view.explorer")
   end,
 }
 
 vim.keymap.set({ 'n' }, "<leader>pf", project.findFile)
 vim.keymap.set({ 'n' }, "<leader>pp", project.switch)
-vim.keymap.set({ 'n' }, "<leader>pe", project.explorer)
+vim.keymap.set({ 'n' }, "<leader>pt", project.tree)
 --#endregion project
+
+--#region git
+local git = {
+  init = function()
+    vim.fn.VSCodeNotify("git.init")
+  end,
+  switch = function()
+    vim.fn.VSCodeNotify("git.checkout")
+  end,
+  push = function()
+    vim.fn.VSCodeNotify("git.push")
+  end,
+  pull = function()
+    vim.fn.VSCodeNotify("git.pull")
+  end,
+  publish = function()
+    vim.fn.VSCodeNotify("git.publish")
+  end,
+
+  -- if gitlens installed
+  graph = function()
+    vim.fn.VSCodeNotify("gitlens.showGraphPage")
+  end,
+}
+
+vim.keymap.set({ 'n' }, "<leader>gs", git.switch)
+vim.keymap.set({ 'n' }, "<leader>gi", git.init)
+vim.keymap.set({ 'n' }, "<leader>gp", git.push)
+vim.keymap.set({ 'n' }, "<leader>gP", git.pull)
+vim.keymap.set({ 'n' }, "<leader>gU", git.publish)
+vim.keymap.set({ 'n' }, "<leader>gg", git.graph)
+--#endregion git
