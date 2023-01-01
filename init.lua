@@ -27,13 +27,23 @@ local file = {
     vim.fn.VSCodeNotify("workbench.action.files.save")
   end,
 
+  saveAll = function()
+    vim.fn.VSCodeNotify("workbench.action.files.saveAll")
+  end,
+
   format = function()
     vim.fn.VSCodeNotify("editor.action.formatDocument")
+  end,
+
+  showInExplorer = function()
+    vim.fn.VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
   end
 }
 
 vim.keymap.set({ 'n', 'v' }, "<space>w", file.save)
+vim.keymap.set({ 'n', 'v' }, "<space>wa", file.saveAll)
 vim.keymap.set({ 'n' }, "<space>ff", file.format)
+vim.keymap.set({ 'n' }, "<space>fe", file.showInExplorer)
 --#endregion file
 
 --#region problem
