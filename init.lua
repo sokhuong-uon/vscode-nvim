@@ -1,8 +1,40 @@
-local whichkey = require("whichkey")
-local comment  = require("comment")
-local file     = require("file")
-local problem  = require("problem")
-local editor   = require("editor")
+local whichkey = {
+  show = function()
+    vim.fn.VSCodeNotify("whichkey.show")
+  end
+}
+
+local comment = {
+  selected = function()
+    vim.fn.VSCodeNotifyRange("editor.action.commentLine", vim.fn.line("v"), vim.fn.line("."), 1)
+  end
+}
+
+local file = {
+  save = function()
+    vim.fn.VSCodeNotify("workbench.action.files.save")
+  end
+}
+
+local problem = {
+  toggle = function()
+    vim.fn.VSCodeNotify("workbench.actions.view.toggleProblems")
+  end
+}
+
+local editor = {
+  previous = function()
+    vim.fn.VSCodeNotify("workbench.action.previousEditor")
+  end,
+
+  next = function()
+    vim.fn.VSCodeNotify("workbench.action.nextEditor")
+  end,
+
+  closeActive = function()
+    vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
+  end
+}
 
 vim.g.mapleader = " "
 
