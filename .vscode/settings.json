@@ -1,4 +1,0 @@
-{
-	"cSpell.words": ["keymap", "mapleader", "whichkey"],
-	"Lua.diagnostics.globals": ["vim"]
-}
