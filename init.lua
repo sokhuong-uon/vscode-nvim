@@ -113,3 +113,21 @@ vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
 vim.keymap.set({ 'n' }, "<leader>sp", search.project)
 vim.keymap.set({ 'n' }, "<leader>st", search.text)
 --#endregion search
+
+--#region project
+local project = {
+  findFile = function()
+    vim.fn.VSCodeNotify("workbench.action.quickOpen")
+  end,
+  switch = function()
+    vim.fn.VSCodeNotify("workbench.action.openRecent")
+  end,
+  explorer = function()
+    vim.fn.VSCodeNotify("workbench.view.explorer")
+  end,
+}
+
+vim.keymap.set({ 'n' }, "<leader>pf", project.findFile)
+vim.keymap.set({ 'n' }, "<leader>pp", project.switch)
+vim.keymap.set({ 'n' }, "<leader>pe", project.explorer)
+--#endregion project
