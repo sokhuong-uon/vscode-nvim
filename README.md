@@ -48,5 +48,7 @@ Clone this repository into `.config` directory.
 Then put the following setting in your `VSCode config JSON file`:
 
 ```json
-	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/vscode-nvim/init.lua",
+{
+	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/vscode-nvim/init.lua"
+}
 ```
