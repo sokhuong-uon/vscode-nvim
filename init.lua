@@ -125,8 +125,16 @@ local git = {
   end,
 }
 
+-- https://vi.stackexchange.com/a/31887
+local n_keymap = function(lhs, rhs)
+  vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
+end
+
 --#region keymap
 vim.g.mapleader = " "
+
+n_keymap('s', '}')
+n_keymap('S', '{')
 
 vim.keymap.set({ 'n' }, "<leader>h", "<cmd>noh<cr>")
 vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
