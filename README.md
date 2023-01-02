@@ -20,6 +20,7 @@ Setup
   {
   	"vscode-neovim.neovimExecutablePaths.linux": "/path/to/your/nvim",
   	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/vscode-nvim/init.lua",
+  	"whichkey.delay": 200,
   	"whichkey.bindings": [
   		{
   			"key": " ",
