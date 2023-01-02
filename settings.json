@@ -315,6 +315,18 @@ SOFTWARE.
 					"name": "Focus Active Editor Group",
 					"type": "command",
 					"command": "workbench.action.focusActiveEditorGroup"
+				},
+				{
+					"key": "r",
+					"name": "Move Side Bar Right",
+					"type": "command",
+					"command": "workbench.action.moveSideBarRight"
+				},
+				{
+					"key": "l",
+					"name": "Move Side Bar Left",
+					"type": "command",
+					"command": "workbench.action.moveSideBarLeft"
 				}
 			]
 		},

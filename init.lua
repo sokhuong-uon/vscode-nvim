@@ -183,7 +183,18 @@ local fold = {
   openAllMarkerRegion = function()
     vim.fn.VSCodeNotify("editor.unfoldAllMarkerRegions")
   end,
+}
 
+local vscode = {
+  focusEditor = function()
+    vim.fn.VSCodeNotify("workbench.action.focusActiveEditorGroup")
+  end,
+  moveSideBarRight = function()
+    vim.fn.VSCodeNotify("workbench.action.moveSideBarRight")
+  end,
+  moveSideBarLeft = function()
+    vim.fn.VSCodeNotify("workbench.action.moveSideBarLeft")
+  end,
 }
 
 -- https://vi.stackexchange.com/a/31887
@@ -244,6 +255,10 @@ vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
 vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
 vim.keymap.set({ 'n' }, "<leader>sp", search.project)
 vim.keymap.set({ 'n' }, "<leader>st", search.text)
+
+vim.keymap.set({ 'n' }, "<leader>ve", vscode.focusEditor)
+vim.keymap.set({ 'n' }, "<leader>vl", vscode.moveSideBarLeft)
+vim.keymap.set({ 'n' }, "<leader>vr", vscode.moveSideBarRight)
 
 vim.keymap.set({ 'n' }, "<leader>zr", fold.openAll)
 vim.keymap.set({ 'n' }, "<leader>zO", fold.openRecursive)
