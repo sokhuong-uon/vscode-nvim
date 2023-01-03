@@ -200,6 +200,7 @@ local vscode = {
 -- https://vi.stackexchange.com/a/31887
 local n_keymap = function(lhs, rhs)
   vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', lhs, rhs, { noremap = true, silent = true })
 end
 
 --#region keymap
