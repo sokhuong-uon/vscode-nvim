@@ -5,7 +5,7 @@ Keybindings are inspired by [LunarVim](https://github.com/lunarvim/lunarvim)
 ## Installation (Linux debian)
 
 ```bash
-  bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/installer/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/installer/install.sh)
 ```
 
 **Requirements**:
