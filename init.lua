@@ -195,6 +195,9 @@ local vscode = {
   moveSideBarLeft = function()
     vim.fn.VSCodeNotify("workbench.action.moveSideBarLeft")
   end,
+  refactor = function()
+    vim.fn.VSCodeNotify("editor.action.refactor")
+  end,
 }
 
 -- https://vi.stackexchange.com/a/31887
@@ -252,6 +255,7 @@ vim.keymap.set({ 'n', 'v' }, "<leader>tz", toggle.toggleZenMode)
 vim.keymap.set({ 'n', 'v' }, "<leader>ts", toggle.toggleSideBarVisibility)
 vim.keymap.set({ 'n', 'v' }, "<leader>tt", toggle.theme)
 
+vim.keymap.set({ 'v' }, "<leader>r", vscode.refactor)
 vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
 
 vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
