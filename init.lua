@@ -243,7 +243,9 @@ vim.keymap.set({ 'n' }, "<space>ft", file.showInExplorer)
 vim.keymap.set({ 'n' }, "<space>fr", file.rename)
 
 vim.keymap.set({ 'n', 'v' }, "<space>c", editor.closeActive)
+vim.keymap.set({ 'n', 'v' }, "<space>bc", editor.closeActive)
 vim.keymap.set({ 'n', 'v' }, "<space>k", editor.closeOther)
+vim.keymap.set({ 'n', 'v' }, "<space>bk", editor.closeOther)
 
 vim.keymap.set({ 'n', 'v' }, "<leader>ta", toggle.toggleActivityBar)
 vim.keymap.set({ 'n', 'v' }, "<leader>tz", toggle.toggleZenMode)
