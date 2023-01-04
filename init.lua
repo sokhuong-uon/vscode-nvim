@@ -11,6 +11,11 @@ local comment = {
 }
 
 local file = {
+  new = function()
+    vim.fn.VSCodeNotify("workbench.explorer.fileView.focus")
+    vim.fn.VSCodeNotify("explorer.newFile")
+  end,
+
   save = function()
     vim.fn.VSCodeNotify("workbench.action.files.save")
   end,
@@ -242,6 +247,7 @@ vim.keymap.set({ 'n', 'v' }, "<space>wa", file.saveAll)
 vim.keymap.set({ 'n', 'v' }, "<space>fs", file.save)
 vim.keymap.set({ 'n', 'v' }, "<space>fS", file.saveAll)
 vim.keymap.set({ 'n' }, "<space>ff", file.format)
+vim.keymap.set({ 'n' }, "<space>fn", file.new)
 vim.keymap.set({ 'n' }, "<space>ft", file.showInExplorer)
 vim.keymap.set({ 'n' }, "<space>fr", file.rename)
 
