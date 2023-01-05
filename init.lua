@@ -217,9 +217,14 @@ vim.g.mapleader = " "
 n_keymap('s', '}')
 n_keymap('S', '{')
 
-vim.keymap.set({ 'n' }, "<leader>h", "<cmd>noh<cr>")
+n_keymap('<leader>h', '^')
+n_keymap('<leader>l', '$')
+
 vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
 vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
+
+-- no highlight
+vim.keymap.set({ 'n' }, "<leader>n", "<cmd>noh<cr>")
 
 vim.keymap.set({ 'n', 'v' }, "<leader> ", workbench.showCommands)
 
