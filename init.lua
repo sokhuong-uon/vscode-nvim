@@ -218,6 +218,11 @@ local nv_keymap = function(lhs, rhs)
   vim.api.nvim_set_keymap('v', lhs, rhs, { noremap = true, silent = true })
 end
 
+local nx_keymap = function(lhs, rhs)
+  vim.api.nvim_set_keymap('n', lhs, rhs, { silent = true })
+  vim.api.nvim_set_keymap('x', lhs, rhs, { silent = true })
+end
+
 --#region keymap
 vim.g.mapleader = " "
 
@@ -227,6 +232,9 @@ nv_keymap('S', '{')
 nv_keymap('<leader>h', '^')
 nv_keymap('<leader>l', '$')
 nv_keymap('<leader>a', '%')
+
+nx_keymap('j', 'gj')
+nx_keymap('k', 'gk')
 
 vim.keymap.set({ 'n', 'v' }, "<leader>", whichkey.show)
 vim.keymap.set({ 'n', 'v' }, "<leader>/", comment.selected)
@@ -308,4 +316,14 @@ vim.keymap.set({ 'n' }, "<leader>zc", fold.close)
 vim.keymap.set({ 'n' }, "<leader>zg", fold.allMarkerRegion)
 vim.keymap.set({ 'n' }, "<leader>zG", fold.openAllMarkerRegion)
 vim.keymap.set({ 'n' }, "<leader>za", fold.toggle)
+
+vim.keymap.set({ 'n' }, "zr", fold.openAll)
+vim.keymap.set({ 'n' }, "zO", fold.openRecursive)
+vim.keymap.set({ 'n' }, "zo", fold.open)
+vim.keymap.set({ 'n' }, "zm", fold.all)
+vim.keymap.set({ 'n' }, "zb", fold.blockComment)
+vim.keymap.set({ 'n' }, "zc", fold.close)
+vim.keymap.set({ 'n' }, "zg", fold.allMarkerRegion)
+vim.keymap.set({ 'n' }, "zG", fold.openAllMarkerRegion)
+vim.keymap.set({ 'n' }, "za", fold.toggle)
 --#endregion keymap
