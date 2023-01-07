@@ -29,7 +29,7 @@ function main() {
   echo -e "**Replace:${RED} \"vscode-neovim.neovimExecutablePaths.linux\": \"/path/to/your/nvim\"${ENDCOLOR}"
   echo -e "By:${GREEN} \"vscode-neovim.neovimExecutablePaths.linux\": \"$NVIM_PATH\""
   echo ""
-  echo -e "Additionaly, you should add some part of keybindigs.json: https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/keybindings.json in your vscode keybindings.json${YELLOW}(Not the default keybind)${ENDCOLOR}"
+  echo -e "Additionaly, you should add some part of keybindigs.json: https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/keybindings.json in your vscode keybindings.json"
 }
 
 function check_system_deps() {

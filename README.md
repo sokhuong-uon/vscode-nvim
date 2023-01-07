@@ -6,6 +6,10 @@
 bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/installer/install.sh)
 ```
 
+- Do not forget to add content in whichkey/settings.json in your vscode setting
+
+- Additionaly, you should add some part of keybindigs.json in your vscode keybindings.json
+
 **Requirements**:
 
 - Have [Neovim](https://neovim.io/) in your machine.
