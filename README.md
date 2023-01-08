@@ -1,6 +1,7 @@
-# Config file for [VSCode Neovim](https://github.com/vscode-neovim/vscode-neovim) and [whichkey](https://github.com/VSpaceCode/vscode-which-key) using [Lua](https://www.lua.org/)
+# VSVim
+## Config file for [VSCode Neovim](https://github.com/vscode-neovim/vscode-neovim) and [whichkey](https://github.com/VSpaceCode/vscode-which-key) using [Lua](https://www.lua.org/)
 
-## Installation (Linux/MacOs)
+### Installation (Linux/MacOs)
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/installer/install.sh)
