@@ -220,7 +220,7 @@ end
 
 local nx_keymap = function(lhs, rhs)
   vim.api.nvim_set_keymap('n', lhs, rhs, { silent = true })
-  vim.api.nvim_set_keymap('x', lhs, rhs, { silent = true })
+  vim.api.nvim_set_keymap('v', lhs, rhs, { silent = true })
 end
 
 --#region keymap
