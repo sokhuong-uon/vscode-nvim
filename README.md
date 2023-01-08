@@ -2,10 +2,11 @@
 ## Config file for [VSCode Neovim](https://github.com/vscode-neovim/vscode-neovim) and [whichkey](https://github.com/VSpaceCode/vscode-which-key) using [Lua](https://www.lua.org/)
 
 ### Installation (Linux/MacOs)
-
+ via command
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/sokhuong-uon/vscode-nvim/main/installer/install.sh)
 ```
+ or clone this repo into your `.config` folder And point VSCode Neovim config path to `init.lua`.
 
 - Do not forget to add content in whichkey/settings.json in your vscode setting
 
