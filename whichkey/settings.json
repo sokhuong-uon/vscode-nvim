@@ -41,6 +41,12 @@
 			"command": "workbench.action.closeActiveEditor"
 		},
 		{
+			"key": "k",
+			"name": "Close Other Editor",
+			"type": "command",
+			"command": "workbench.action.closeOtherEditors"
+		},
+		{
 			"key": "e",
 			"name": "+Errors",
 			"type": "bindings",
@@ -199,7 +205,7 @@
 			"bindings": [
 				{
 					"key": "t",
-					"name": "Search in a project",
+					"name": "Search text in a project",
 					"type": "command",
 					"command": "workbench.action.findInFiles"
 				},
@@ -260,18 +266,6 @@
 					"name": "Toggle find [c]ase sensitive",
 					"type": "command",
 					"command": "toggleFindCaseSensitive"
-				},
-				{
-					"key": "w",
-					"name": "Toggle ignore trim whitespace in diff",
-					"type": "command",
-					"command": "toggle.diff.ignoreTrimWhitespace"
-				},
-				{
-					"key": "W",
-					"name": "Toggle word wrap",
-					"type": "command",
-					"command": "editor.action.toggleWordWrap"
 				}
 			]
 		},
