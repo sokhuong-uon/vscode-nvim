@@ -97,6 +97,22 @@ local symbol = {
   end,
 }
 
+-- if bookmark extension is used
+local bookmark = {
+  toggle = function()
+    vim.fn.VSCodeNotify("bookmarks.toggle")
+  end,
+  list = function()
+    vim.fn.VSCodeNotify("bookmarks.list")
+  end,
+  previous = function()
+    vim.fn.VSCodeNotify("bookmarks.jumpToPrevious")
+  end,
+  next = function()
+    vim.fn.VSCodeNotify("bookmarks.jumpToNext")
+  end,
+}
+
 local search = {
   reference = function()
     vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
@@ -295,6 +311,13 @@ vim.keymap.set({ 'v' }, "<leader>r", refactor.showMenu)
 vim.keymap.set({ 'n' }, "<leader>rr", symbol.rename)
 vim.api.nvim_set_keymap('n', '<leader>rd', 'V%d', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rv', 'V%', { silent = true })
+
+-- bookmark
+vim.keymap.set({ 'n' }, "<leader>m", bookmark.toggle)
+vim.keymap.set({ 'n' }, "<leader>mt", bookmark.toggle)
+vim.keymap.set({ 'n' }, "<leader>ml", bookmark.list)
+vim.keymap.set({ 'n' }, "<leader>mn", bookmark.next)
+vim.keymap.set({ 'n' }, "<leader>mp", bookmark.previous)
 
 vim.keymap.set({ 'n' }, "<leader>sr", search.reference)
 vim.keymap.set({ 'n' }, "<leader>sR", search.referenceInSideBar)
