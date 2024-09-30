@@ -1,15 +1,25 @@
 [
 	{
-		"command": "vscode-neovim.compositeEscape1",
-		"key": "j",
-		"when": "neovim.mode == insert && editorTextFocus",
-		"args": "j"
+		"vscode-neovim.compositeKeys": {
+			"jj": {
+				"command": "vscode-neovim.escape"
+			}
+		}
 	},
 	{
-		"command": "vscode-neovim.compositeEscape2",
-		"key": "k",
-		"when": "neovim.mode == insert && editorTextFocus",
-		"args": "k"
+		"vscode-neovim.compositeKeys": {
+			"jk": {
+				// Use lua to execute any logic
+				"command": "vscode-neovim.lua",
+				"args": [
+					[
+						"local code = require('vscode')",
+						"code.action('vscode-neovim.escape')",
+						"code.action('workbench.action.files.save')"
+					]
+				]
+			}
+		}
 	},
 	{
 		"key": "space",
