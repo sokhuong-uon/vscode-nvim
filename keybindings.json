@@ -1,27 +1,5 @@
 [
 	{
-		"vscode-neovim.compositeKeys": {
-			"jj": {
-				"command": "vscode-neovim.escape"
-			}
-		}
-	},
-	{
-		"vscode-neovim.compositeKeys": {
-			"jk": {
-				// Use lua to execute any logic
-				"command": "vscode-neovim.lua",
-				"args": [
-					[
-						"local code = require('vscode')",
-						"code.action('vscode-neovim.escape')",
-						"code.action('workbench.action.files.save')"
-					]
-				]
-			}
-		}
-	},
-	{
 		"key": "space",
 		"command": "whichkey.show",
 		"when": "sideBarFocus && !textInputFocus && !inputFocus"
